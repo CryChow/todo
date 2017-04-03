@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo</title>
+
+  <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="http://localhost:3000/javascripts/jq.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://localhost:3000/stylesheets/style.css">
+</head>
+<body>
+<div class="panel panel-default center-block">
+  <div class="panel-heading">ToDo</div>
+  <div class="panel-body">
+    <p class="remaining"><span  id="remain">0</span> of <span id="sum">0</span> remaining</p>
+  </div>
+  <ul class="list-group" id="tdList">
+    <% allContent.forEach(function(todo, index){ %>
+    <li class = 'list-group-item'><input type="checkbox" name="box" class="td_box" dbId = '<%= todo.id %>'/><span><%= todo.content %> </span><button onclick="deleteContent('<%= todo.id %>',this);" style="float:right;" type="button" class="am-close">x</button></li>
+    <% }) %>
+  </ul>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">ToDo</span>
+    <input type="text" id="addTxt" class="form-control" placeholder="please input your todo" aria-describedby="basic-addon1">
+    <span class="input-group-btn">
+        <button class="btn btn-default outline" type="button" id="submit">add</button>
+    </span>
+  </div>
+</div>
+</body>
+</html>
